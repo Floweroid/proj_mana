@@ -1,0 +1,95 @@
+- model: plan.task
+  fields:
+    title: "Project Management Plan"
+    description: |
+      - Clarify the Project Demanding and Grading rubric
+      - Meeting and Deciding Project Ideas according to the Grading rubric, tech-stack, and overall skills of team members
+      - Submit the Group file
+      - SRS revision, project management, and plan update according to the idea chosen
+    start_time: '2023-09-10 00:00:00-04:00'
+    end_time: '2023-09-16 23:59:59-04:00'
+    status: "Completed"
+    members:
+      - "Zekai Lin"
+
+- model: plan.task
+  fields:
+    title: "Learn Unity"
+    description: |
+      - Install Unity, Unity Hub
+      - Sign up Unity Account
+      - Learn C# Grammar
+    start_time: '2023-09-10 00:00:00-04:00'
+    end_time: '2023-09-16 23:59:59-04:00'
+    status: "Pending"
+    members:
+      - "Zekai Lin"
+      - "Shizhan Ma"
+      - "Zhenyang Li"
+      - "Wentao Chen"
+
+- model: plan.task
+  fields:
+    title: "Requirement Documentation"
+    description: |
+      - Draw System Architecture Diagram
+      - Draw Class Diagram
+      - Draw User Interface
+    start_time: '2023-09-10 00:00:00-04:00'
+    end_time: '2023-09-16 23:59:59-04:00'
+    status: "Pending"
+    members:
+      - "Zekai Lin"
+
+- model: plan.task
+  fields:
+    title: "Review Project Management Plan"
+    description: "Go through the whole Project management plan and send messages in the WeChat group if there are any doubts or suggestions"
+    start_time: '2023-09-10 00:00:00-04:00'
+    end_time: '2023-09-16 23:59:59-04:00'
+    status: "Pending"
+    members:
+      - "Zekai Lin"
+      - "Shizhan Ma"
+      - "Zhenyang Li"
+      - "Wentao Chen"
+
+- model: plan.task
+  fields:
+    title: "Progress/Sprint Report #1"
+    description: "Generate progress report"
+    start_time: '2023-09-17 00:00:00-04:00'
+    end_time: '2023-09-23 23:59:59-04:00'
+    status: "Pending"
+    members:
+      - "Zekai Lin"
+
+- model: plan.task
+  fields:
+    title: "Review & Update Documentation"
+    description: |
+      - System Architecture Diagram
+      - Class Diagram
+      - User Interface
+      - Project Management Plan
+    start_time: '2023-09-17 00:00:00-04:00'
+    end_time: '2023-09-23 23:59:59-04:00'
+    status: "Pending"
+    members:
+      - "Zekai Lin"
+      - "Shizhan Ma"
+      - "Zhenyang Li"
+      - "Wentao Chen"
+
+- model: plan.task
+  fields:
+    title: "Prototype Development"
+    description: "Develop the project prototype"
+    start_time: '2023-09-17 00:00:00-04:00'
+    end_time: '2023-09-23 23:59:59-04:00'
+    status: "Pending"
+    members:
+      - "Zekai Lin"
+      - "Shizhan Ma"
+      - "Zhenyang Li"
+      - "Wentao Chen"

@@ -1,0 +1,23 @@
+- model: plan.member
+  fields:
+    name: Member 1
+
+- model: plan.member
+  fields:
+    name: Member 2
+
+- model: plan.task
+  fields:
+    title: Task 1
+    description: Description for Task 1
+    start_time: 09-17-2023 12-30-00
+    end_time: 09-17-2023 14-00-00
+    status: Pending
+
+- model: plan.task
+  fields:
+    title: Task 2
+    description: Description for Task 2
+    start_time: 09-18-2023 10-00-00
+    end_time: 09-18-2023 11-30-00
+    status: InProgress
