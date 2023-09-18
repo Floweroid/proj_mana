@@ -1,0 +1,23 @@
+# Project Plan Management Platform
+
+activate the virtual environment:
+
+    .\planvenv\Scripts\activate
+
+deactivate the virtual environment:
+
+    deactivate
+
+Start Server
+
+    python manage.py runserver 
+
+Create app
+
+    python manage.py startapp <appname>
+
+migrate
+
+    python manage.py migrate
+
+    python manage.py makemigrations <appname>
