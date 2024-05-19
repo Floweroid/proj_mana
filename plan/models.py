@@ -68,24 +68,3 @@ class Author(models.Model):
     get_books_display.short_description = 'Books'  # Optional, sets the column name in the admin list view
 
 
-class Definition(models.Model):
-    name = models.CharField(max_length=100, verbose_name='名称')
-    description = models.TextField(verbose_name='描述')
-
-    def __str__(self):
-        return self.name
-
-class Requirement(models.Model):
-    STATUS_CHOICES = (
-        ('已完成', '已完成'),
-        ('进行中', '进行中'),
-        ('未开始', '未开始'),
-    )
-
-    status = models.CharField(max_length=10, choices=STATUS_CHOICES, verbose_name='状态')
-    description = models.TextField(verbose_name='描述')
-    definitions = models.ManyToManyField(Definition, verbose_name='相关定义', related_name='requirements')
-    priority = models.IntegerField(verbose_name='优先级')
-
-    def __str__(self):
-        return f"Requirement {self.id}: {self.description}"
