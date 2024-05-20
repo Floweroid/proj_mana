@@ -13,12 +13,19 @@ class Requirement(models.Model):
     priority = models.IntegerField(verbose_name='优先级', default=0)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='更新时间')
-    parent = models.ForeignKey('self', null=True, blank=True, related_name='sub_requirements', on_delete=models.CASCADE, verbose_name='父需求')
+    parents = models.ManyToManyField('self', through='RequirementRelationship', symmetrical=False, related_name='children', verbose_name='父需求')
     start_time = models.DateTimeField(verbose_name='开始时间', null=True, blank=True)
     end_time = models.DateTimeField(verbose_name='结束时间', null=True, blank=True)
-
+    
     def __str__(self):
         return f"Requirement {self.id}: {self.description}"
+
+class RequirementRelationship(models.Model):
+    from_requirement = models.ForeignKey(Requirement, related_name='from_requirements', on_delete=models.CASCADE)
+    to_requirement = models.ForeignKey(Requirement, related_name='to_requirements', on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
 
 
 
