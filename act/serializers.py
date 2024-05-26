@@ -1,6 +1,6 @@
 # serializers.py
 from rest_framework import serializers
-from .models import Note, Requirement,RequirementRelationship
+from .models import Note, Requirement, RequirementRelationship
 
 
 
@@ -8,18 +8,26 @@ class NoteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Note
         fields = '__all__'
-
+        
 class RequirementSerializer(serializers.ModelSerializer):
-    parents = serializers.PrimaryKeyRelatedField(many=True, queryset=Requirement.objects.all(), required=False)
+    parents = serializers.PrimaryKeyRelatedField(queryset=Requirement.objects.all(), many=True, required=False)
 
     class Meta:
         model = Requirement
-        fields = '__all__'
+        fields = ['id', 'name', 'status', 'description', 'priority', 'created_at', 'updated_at', 'start_time', 'end_time', 'parents']
+        read_only_fields = ['created_at', 'updated_at']
 
     def create(self, validated_data):
-        parents_data = validated_data.pop('parents', None)
+        parents = validated_data.pop('parents', [])
         requirement = Requirement.objects.create(**validated_data)
-        if parents_data:
-            for parent in parents_data:
-                RequirementRelationship.objects.create(from_requirement=parent, to_requirement=requirement)
+        for parent in parents:
+            RequirementRelationship.objects.create(from_requirement=parent, to_requirement=requirement)
         return requirement
+
+    def update(self, instance, validated_data):
+        parents = validated_data.pop('parents', None)
+        if parents is not None:
+            instance.parents.clear()
+            for parent in parents:
+                RequirementRelationship.objects.create(from_requirement=parent, to_requirement=instance)
+        return super().update(instance, validated_data)

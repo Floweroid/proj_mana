@@ -109,3 +109,11 @@ class NoteAdmin(admin.ModelAdmin):
     search_fields = ('name', 'description')
     list_filter = ('created_at', 'updated_at')
     ordering = ('-created_at',)
+
+@admin.register(RequirementRelationship)
+class RequirementRelationshipAdmin(admin.ModelAdmin):
+    list_display = ('from_requirement', 'to_requirement', 'created_at', 'updated_at')
+    search_fields = ('from_requirement__name', 'to_requirement__name')
+    list_filter = ('created_at', 'updated_at')
+    ordering = ('-created_at',)
+

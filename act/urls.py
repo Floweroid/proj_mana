@@ -8,4 +8,5 @@ router.register(r'requirements', RequirementViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
-]
+    ]
+    

@@ -34,8 +34,6 @@ class RequirementRelationship(models.Model):
         return f"{self.from_requirement}->{self.to_requirement}"
 
 
-
-
 class Note(models.Model):
     name = models.CharField(max_length=100, verbose_name='笔记名称')
     description = models.TextField(verbose_name='笔记',null=True)
