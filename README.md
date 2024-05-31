@@ -70,13 +70,17 @@
 
     python manage.py startapp <appname>
 
+创建新用户
+
+    python manage.py createsuperuser <username>
+
 数据迁移 migrate
 
     python manage.py makemigrations <appname>
 
     python manage.py migrate
 
-网站admin 账号密码 Admin
+建议网站admin 账号密码 Admin
 
     username: admin
     password: admin
