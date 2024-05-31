@@ -3,16 +3,16 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import viewsets,status
-from .models import Note, Requirement
-from .serializers import NoteSerializer, RequirementSerializer
+from .models import Note, Todo
+from .serializers import NoteSerializer, TodoSerializer
 
 class NoteViewSet(viewsets.ModelViewSet):
     queryset = Note.objects.all()
     serializer_class = NoteSerializer
 
-class RequirementViewSet(viewsets.ModelViewSet):
-    queryset = Requirement.objects.all()
-    serializer_class = RequirementSerializer
+class TodoViewSet(viewsets.ModelViewSet):
+    queryset = Todo.objects.all()
+    serializer_class = TodoSerializer
 
     def create(self, request, *args, **kwargs):
         if isinstance(request.data, list):
