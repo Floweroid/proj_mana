@@ -1,6 +1,6 @@
 # serializers.py
 from rest_framework import serializers
-from .models import Note, Requirement, RequirementRelationship
+from .models import Note, Todo, TodoRelationship
 
 
 
@@ -9,25 +9,25 @@ class NoteSerializer(serializers.ModelSerializer):
         model = Note
         fields = '__all__'
         
-class RequirementSerializer(serializers.ModelSerializer):
-    parents = serializers.PrimaryKeyRelatedField(queryset=Requirement.objects.all(), many=True, required=False)
+class TodoSerializer(serializers.ModelSerializer):
+    parents = serializers.PrimaryKeyRelatedField(queryset=Todo.objects.all(), many=True, required=False)
 
     class Meta:
-        model = Requirement
+        model = Todo
         fields = ['id', 'name', 'status', 'description', 'priority', 'created_at', 'updated_at', 'start_time', 'end_time', 'parents']
         read_only_fields = ['created_at', 'updated_at']
 
     def create(self, validated_data):
         parents = validated_data.pop('parents', [])
-        requirement = Requirement.objects.create(**validated_data)
+        Todo = Todo.objects.create(**validated_data)
         for parent in parents:
-            RequirementRelationship.objects.create(from_requirement=parent, to_requirement=requirement)
-        return requirement
+            TodoRelationship.objects.create(from_Todo=parent, to_Todo=Todo)
+        return Todo
 
     def update(self, instance, validated_data):
         parents = validated_data.pop('parents', None)
         if parents is not None:
             instance.parents.clear()
             for parent in parents:
-                RequirementRelationship.objects.create(from_requirement=parent, to_requirement=instance)
+                TodoRelationship.objects.create(from_Todo=parent, to_Todo=instance)
         return super().update(instance, validated_data)
