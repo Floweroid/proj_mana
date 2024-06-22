@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'req_doc',
     'act',
     'habit',
+    'note',
 
     
     

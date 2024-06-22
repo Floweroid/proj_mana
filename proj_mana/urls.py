@@ -22,5 +22,6 @@ urlpatterns = [
     path("req/", include("req_doc.urls")),
     path("act/", include("act.urls")),
     path('admin/', admin.site.urls),
+    path('api/', include('note.urls')),  # Include the note app URLs
     
 ]
