@@ -35,14 +35,14 @@ class TodoRelationship(models.Model):
     def __str__(self):
         return f"{self.from_Todo}->{self.to_Todo}"
 
-class Note(models.Model):
-    name = models.CharField(max_length=100, verbose_name='笔记名称')
-    description = models.TextField(verbose_name='笔记',null=True)
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
-    updated_at = models.DateTimeField(auto_now=True, verbose_name='更新时间')
+# class Note(models.Model):
+#     name = models.CharField(max_length=100, verbose_name='笔记名称')
+#     description = models.TextField(verbose_name='笔记',null=True)
+#     created_at = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
+#     updated_at = models.DateTimeField(auto_now=True, verbose_name='更新时间')
 
-    def __str__(self):
-        return self.name
+#     def __str__(self):
+#         return self.name
     
 
     

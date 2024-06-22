@@ -3,12 +3,12 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import viewsets,status
-from .models import Note, Todo
-from .serializers import NoteSerializer, TodoSerializer
+from .models import Todo
+from .serializers import  TodoSerializer
 
-class NoteViewSet(viewsets.ModelViewSet):
-    queryset = Note.objects.all()
-    serializer_class = NoteSerializer
+# class NoteViewSet(viewsets.ModelViewSet):
+#     queryset = Note.objects.all()
+#     serializer_class = NoteSerializer
 
 class TodoViewSet(viewsets.ModelViewSet):
     queryset = Todo.objects.all()

@@ -2,7 +2,7 @@ from django.contrib.admin import RelatedFieldListFilter
 from django import forms
 from django.contrib import admin
 
-from .models import Media, Note, Person, SocialRelationship, Todo, TodoPersonRelation, TodoRelationship
+from .models import Media, Person, SocialRelationship, Todo, TodoPersonRelation, TodoRelationship
 
 
 # class TodoRelationshipInlineForm(forms.ModelForm):
@@ -109,13 +109,13 @@ class PersonAdmin(admin.ModelAdmin):
     inlines = [MediaInline,TodoPersonRelationInline,SocialRelationshipInline]
 
 
-@admin.register(Note)
-class NoteAdmin(admin.ModelAdmin):
-    list_display = ( 'name', 'created_at', 'updated_at')
-    readonly_fields = ('created_at', 'updated_at')
-    search_fields = ('name', 'description')
-    list_filter = ('created_at', 'updated_at')
-    ordering = ('-created_at',)
+# @admin.register(Note)
+# class NoteAdmin(admin.ModelAdmin):
+#     list_display = ( 'name', 'created_at', 'updated_at')
+#     readonly_fields = ('created_at', 'updated_at')
+#     search_fields = ('name', 'description')
+#     list_filter = ('created_at', 'updated_at')
+#     ordering = ('-created_at',)
 
 @admin.register(TodoRelationship)
 class TodoRelationshipAdmin(admin.ModelAdmin):

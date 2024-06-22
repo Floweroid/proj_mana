@@ -1,13 +1,13 @@
 # serializers.py
 from rest_framework import serializers
-from .models import Note, Todo, TodoRelationship
+from .models import Todo, TodoRelationship
 
 
 
-class NoteSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Note
-        fields = '__all__'
+# class NoteSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Note
+#         fields = '__all__'
         
 class TodoSerializer(serializers.ModelSerializer):
     parents = serializers.PrimaryKeyRelatedField(queryset=Todo.objects.all(), many=True, required=False)
