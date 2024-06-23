@@ -1,7 +1,7 @@
 # note/views.py
 
 from rest_framework import viewsets
-from .models import Note, NoteRelation
+from .models import Note, NotePointer
 from .serializers import NoteSerializer, NoteRelationSerializer
 
 class NoteViewSet(viewsets.ModelViewSet):
@@ -9,5 +9,5 @@ class NoteViewSet(viewsets.ModelViewSet):
     serializer_class = NoteSerializer
 
 class NoteRelationViewSet(viewsets.ModelViewSet):
-    queryset = NoteRelation.objects.all()
+    queryset = NotePointer.objects.all()
     serializer_class = NoteRelationSerializer
